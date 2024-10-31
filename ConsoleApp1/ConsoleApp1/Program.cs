@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using ConsoleApp1;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -10,5 +12,13 @@
 
         Console.WriteLine("Ingrese el valor por crédito:");
         decimal valorCredito = decimal.Parse(Console.ReadLine());
+
+        var estudiante = new Estudiante(creditos, estrato, valorCredito);
+
+        Console.WriteLine($"Costo matrícula: ${estudiante.CalcularMatricula()}");
+        Console.WriteLine($"Subsidio: ${estudiante.CalcularSubsidio()}");
+
+        Console.WriteLine("¿Calcular para otro estudiante? (s/n)");
+    } while (Console.ReadLine().ToLower() == "s");
     }
 }
